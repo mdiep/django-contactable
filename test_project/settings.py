@@ -87,4 +87,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'contactable',
+    'test_app',
 )
