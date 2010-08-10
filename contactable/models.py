@@ -1,3 +1,7 @@
+
 from django.db import models
 
-# Create your models here.
+class Contactable(models.Model):
+    class Meta:
+        abstract = True
+
