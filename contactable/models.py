@@ -39,6 +39,9 @@ class ContactInfo(models.Model):
 
     objects = ContactInfoManager()
     
+    class Meta:
+        verbose_name_plural = 'contact info'
+    
     def __unicode__(self):
         return unicode(self.contactable)
 
