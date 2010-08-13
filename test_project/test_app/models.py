@@ -12,5 +12,9 @@ class Person(Contactable):
     
     def __unicode__(self):
         return self.first_name + ' ' + self.last_name
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('test_app.views.person_detail', [self.id])
 
 
