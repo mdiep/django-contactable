@@ -5,6 +5,7 @@
 
 {% block content %}
 <h2>{{ object }}</h2>
+<a href='{% url person_edit object.id %}'>edit</a>
 
 {% contact_info object %}
 {% endblock %}
