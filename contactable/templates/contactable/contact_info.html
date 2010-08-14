@@ -1,0 +1,11 @@
+
+{% if phone_numbers %}
+    <h3>Phone Numbers</h3>
+    <table>
+    {% for phone_number in phone_numbers %}
+        <tr><td>{{ phone_number.number }}</td>
+            <td>{{ phone_number.get_label_display }}</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+

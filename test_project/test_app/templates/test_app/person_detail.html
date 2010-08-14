@@ -1,7 +1,11 @@
 
 {% extends 'base.html' %}
 
+{% load contactable %}
+
 {% block content %}
 <h2>{{ object }}</h2>
+
+{% contact_info object %}
 {% endblock %}
 
