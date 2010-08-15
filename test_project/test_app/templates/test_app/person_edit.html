@@ -4,11 +4,7 @@
 {% block content %}
 <form method='post'>
 {% csrf_token %}
-{{ form.as_p }}
-{{ form.phone_number_formset.management_form }}
-{% for phone_form in form.phone_number_formset.forms %}
-    <div>{{ phone_form }}</div>
-{% endfor %}
+{{ form }}
 <input type='submit' value='Save {{ person }}' />
 </form>
 {% endblock %}

@@ -1,5 +1,6 @@
 
 from django import forms
+from django.template.loader import render_to_string
 
 from contactable.models import *
 
@@ -13,6 +14,9 @@ class ContactInfoForm(forms.ModelForm):
                 kwargs['instance'] = instance.contact_info
         super(ContactInfoForm, self).__init__(self, *args, **kwargs)
         self.phone_number_formset = PhoneNumberFormSet(*args, **kwargs)
+    
+    def __unicode__(self):
+        return render_to_string('contactable/contact_info_form.html', {'form': self})
     
     def is_valid(self):
         return super(ContactInfoForm, self).is_valid() \
