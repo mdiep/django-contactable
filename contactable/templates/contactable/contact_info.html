@@ -19,3 +19,17 @@
     </table>
 {% endif %}
 
+{% if addresses %}
+    <h3>Addresses</h3>
+    <table>
+    {% for address in addresses %}
+        <tr><td>{{ address.street }}</td>
+            <td>{{ address.street2 }}</td>
+            <td>{{ address.city }}</td>
+            <td>{{ address.state }}</td>
+            <td>{{ address.zip }}</td>
+            <td>{{ address.get_label_display }}</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+

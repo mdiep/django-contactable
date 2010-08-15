@@ -13,3 +13,9 @@
     <div>{{ form }}</div>
 {% endfor %}
 
+<h3>Addresses</h3>
+{{ form.address_formset.management_form }}
+{% for form in form.address_formset.forms %}
+    <div>{{ form }}</div>
+{% endfor %}
+

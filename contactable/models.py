@@ -77,4 +77,27 @@ class PhoneNumber(models.Model):
     def __unicode__(self):
         return "%s (%s)" % (self.number, self.get_label_display())
 
+class Address(models.Model):
+    LABEL_CHOICES = (
+        ('h', 'home'),
+        ('w', 'work'),
+        ('o', 'other'),
+    )
+    
+    info    = models.ForeignKey(ContactInfo, related_name='addresses')
+    label   = models.CharField(max_length=1, choices=LABEL_CHOICES)
+    street  = models.CharField(max_length=50, blank=True)
+    street2 = models.CharField(max_length=50, blank=True)
+    city    = models.CharField(max_length=50, blank=True)
+    state   = us.USStateField(blank=True, null=True, default='AL')
+    zip     = models.CharField(max_length=5, blank=True)
+    
+    def __unicode__(self):
+        if self.street2:
+            return "%s, %s, %s, %s, %s (%s)" % (self.street, self.street2, self.city, self.state, self.zip, self.get_label_display())
+        else:
+            return "%s, %s, %s, %s (%s)" % (self.street, self.city, self.state, self.zip, self.get_label_display())
+    
+    class Meta:
+        verbose_name_plural = 'addresses'
 
