@@ -3,12 +3,16 @@ from django.contrib import admin
 
 from contactable.models import *
 
+class EmailAddressInline(admin.TabularInline):
+    model = EmailAddress
+    extra = 1
+
 class PhoneNumberInline(admin.TabularInline):
     model = PhoneNumber
     extra = 1
 
 class ContactInfoAdmin(admin.ModelAdmin):
-    inlines = [ PhoneNumberInline ]
+    inlines = [ EmailAddressInline, PhoneNumberInline ]
     exclude = [ 'content_type', 'object_id' ]
 
 admin.site.register(ContactInfo, ContactInfoAdmin)

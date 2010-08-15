@@ -1,8 +1,14 @@
 
 {{ form.as_p }}
 
-{{ form.phone_number_formset.management_form }}
+<h3>Email Addresses</h3>
+{{ form.email_address_formset.management_form }}
+{% for form in form.email_address_formset.forms %}
+    <div>{{ form }}</div>
+{% endfor %}
 
+<h3>Phone Numbers</h3>
+{{ form.phone_number_formset.management_form }}
 {% for form in form.phone_number_formset.forms %}
     <div>{{ form }}</div>
 {% endfor %}

@@ -1,4 +1,14 @@
 
+{% if email_addresses %}
+    <h3>Email Addresses</h3>
+    <table>
+    {% for email_address in email_addresses %}
+        <tr><td>{{ email_address.address }}</td>
+            <td>{{ email_address.get_label_display }}</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+
 {% if phone_numbers %}
     <h3>Phone Numbers</h3>
     <table>

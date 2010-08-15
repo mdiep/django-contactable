@@ -45,6 +45,23 @@ class ContactInfo(models.Model):
     def __unicode__(self):
         return unicode(self.contactable)
 
+class EmailAddress(models.Model):
+    LABEL_CHOICES = (
+        ('h', 'home'),
+        ('w', 'work'),
+        ('o', 'other'),
+    )
+    
+    info    = models.ForeignKey(ContactInfo, related_name='email_addresses')
+    label   = models.CharField(max_length=1, choices=LABEL_CHOICES)
+    address = models.EmailField()
+    
+    def __unicode__(self):
+        return "%s (%s)" % (self.address, self.get_label_display())
+    
+    class Meta:
+        verbose_name_plural = 'email addresses'
+
 class PhoneNumber(models.Model):
     LABEL_CHOICES = (
         ('m', 'mobile'),
