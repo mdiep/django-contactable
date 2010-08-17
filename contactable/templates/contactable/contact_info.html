@@ -3,7 +3,7 @@
     <h3>Email Addresses</h3>
     <table>
     {% for email_address in email_addresses %}
-        <tr><td>{{ email_address.address }}</td>
+        <tr><td><a href='mailto:{{ email_address.address }}'>{{ email_address.address }}</a></td>
             <td>{{ email_address.get_label_display }}</td></tr>
     {% endfor %}
     </table>
