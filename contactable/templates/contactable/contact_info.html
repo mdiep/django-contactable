@@ -24,11 +24,11 @@
     <table>
     {% for address in addresses %}
         <tr><td>{{ address.street }}</td>
-            <td>{{ address.street2 }}</td>
-            <td>{{ address.city }}</td>
-            <td>{{ address.state }}</td>
-            <td>{{ address.zip }}</td>
             <td>{{ address.get_label_display }}</td></tr>
+        <tr><td>{{ address.street2 }}</td>
+            <td></td></tr>
+        <tr><td>{{ address.city }}, {{ address.state }} {{ address.zip }}</td>
+            <td></td></tr>
     {% endfor %}
     </table>
 {% endif %}
