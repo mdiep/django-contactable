@@ -37,5 +37,5 @@ class ContactInfoForm(forms.ModelForm):
     
     class Meta:
         model   = ContactInfo
-        exclude = ['content_type', 'object_id']
+        exclude = ['content_type', 'object_id', 'default_phone_number', 'default_email_address', 'default_address']
 

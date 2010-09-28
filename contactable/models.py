@@ -36,7 +36,11 @@ class ContactInfo(models.Model):
     content_type = models.ForeignKey(ContentType)
     object_id    = models.PositiveIntegerField()
     contactable  = generic.GenericForeignKey()
-
+    
+    default_email_address   = models.OneToOneField('EmailAddress', blank=True, null=True)
+    default_phone_number    = models.OneToOneField('PhoneNumber',  blank=True, null=True)
+    default_address         = models.OneToOneField('Address',      blank=True, null=True)
+    
     objects = ContactInfoManager()
     
     class Meta:
