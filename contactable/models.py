@@ -61,7 +61,7 @@ class EmailAddress(models.Model):
     address = models.EmailField()
     
     def __unicode__(self):
-        return "%s (%s)" % (self.address, self.get_label_display())
+        return self.address
     
     class Meta:
         verbose_name_plural = 'email addresses'
@@ -79,7 +79,7 @@ class PhoneNumber(models.Model):
     number = us.PhoneNumberField()
     
     def __unicode__(self):
-        return "%s (%s)" % (self.number, self.get_label_display())
+        return self.number
 
 class Address(models.Model):
     LABEL_CHOICES = (
@@ -98,9 +98,9 @@ class Address(models.Model):
     
     def __unicode__(self):
         if self.street2:
-            return "%s, %s, %s, %s, %s (%s)" % (self.street, self.street2, self.city, self.state, self.zip, self.get_label_display())
+            return "%s, %s, %s, %s, %s" % (self.street, self.street2, self.city, self.state, self.zip)
         else:
-            return "%s, %s, %s, %s (%s)" % (self.street, self.city, self.state, self.zip, self.get_label_display())
+            return "%s, %s, %s, %s" % (self.street, self.city, self.state, self.zip)
     
     class Meta:
         verbose_name_plural = 'addresses'
