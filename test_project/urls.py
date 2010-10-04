@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.conf import settings
 
 # Enable the admin:
 from django.contrib import admin
@@ -14,3 +15,10 @@ urlpatterns = patterns('',
     # Enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+            url('^media/(?P<path>.*)$', 'django.views.static.serve',
+                {'document_root': settings.MEDIA_ROOT}),
+    )
+
