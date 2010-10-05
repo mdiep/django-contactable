@@ -5,7 +5,7 @@
 
 <h3>Email Addresses</h3>
 {{ form.email_address_formset.management_form }}
-<table>
+<table class='email-addresses'>
 {% for form in form.email_address_formset.forms %}
     <tr><td>{{ form.id }}{{ form.address }}</td>
         <td>{{ form.label }}</td>
@@ -15,7 +15,7 @@
 
 <h3>Phone Numbers</h3>
 {{ form.phone_number_formset.management_form }}
-<table>
+<table class='phone-numbers'>
 {% for form in form.phone_number_formset.forms %}
     <tr><td>{{ form.id }}{{ form.number }}</td>
         <td>{{ form.label }}</td>
@@ -25,7 +25,7 @@
 
 <h3>Addresses</h3>
 {{ form.address_formset.management_form }}
-<table>
+<table class='addresses'>
 {% for form in form.address_formset.forms %}
     <tbody>
     <tr><td>{{ form.id }}{{ form.street }}</td>
