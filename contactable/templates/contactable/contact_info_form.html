@@ -1,21 +1,45 @@
 
+<div class='contactable-edit-info'>
+
 {{ form.as_p }}
 
 <h3>Email Addresses</h3>
 {{ form.email_address_formset.management_form }}
+<table>
 {% for form in form.email_address_formset.forms %}
-    <div>{{ form }}</div>
+    <tr><td>{{ form.id }}{{ form.address }}</td>
+        <td>{{ form.label }}</td>
+        <td>Delete? {{ form.DELETE }}</td></tr> 
 {% endfor %}
+</table>
 
 <h3>Phone Numbers</h3>
 {{ form.phone_number_formset.management_form }}
+<table>
 {% for form in form.phone_number_formset.forms %}
-    <div>{{ form }}</div>
+    <tr><td>{{ form.id }}{{ form.number }}</td>
+        <td>{{ form.label }}</td>
+        <td>Delete? {{ form.DELETE }}</td></tr>
 {% endfor %}
+</table>
 
 <h3>Addresses</h3>
 {{ form.address_formset.management_form }}
+<table>
 {% for form in form.address_formset.forms %}
-    <div>{{ form }}</div>
+    <tbody>
+    <tr><td>{{ form.id }}{{ form.street }}</td>
+        <td>{{ form.label }}</td>
+        <td>Delete? {{ form.DELETE }}</td></tr>
+    <tr><td>{{ form.street2 }}</td>
+        <td></td>
+        <td></td></tr>
+    <tr><td>{{ form.city }}</td>
+        <td>{{ form.state }}</td>
+        <td>{{ form.zip }}</td></tr>
+    </tbody>
 {% endfor %}
+</table>
+
+</div>
 

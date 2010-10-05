@@ -5,3 +5,13 @@ div.contactable-info span.label
     margin-left: 0.3em;
 }
 
+div.contactable-edit-info table td
+{
+    padding-left: 0.5em;
+}
+
+div.contactable-edit-info table tbody tr:last-child td
+{
+    padding-bottom: 1.5em;
+}
+
