@@ -15,10 +15,12 @@ class Contactable(models.Model):
     
     @property
     def contact_info(self):
-        try:
-            return ContactInfo.objects.get(contactable=self)
-        except ContactInfo.DoesNotExist:
-            return ContactInfo(contactable=self)
+        if not hasattr(self, '_contact_info'):
+            try:
+                self._contact_info = ContactInfo.objects.get(contactable=self)
+            except ContactInfo.DoesNotExist:
+                self._contact_info = ContactInfo(contactable=self)
+        return self._contact_info
     
     class Meta:
         abstract = True
